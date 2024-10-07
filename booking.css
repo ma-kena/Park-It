@@ -1,0 +1,56 @@
+/* Booking Page Specific Styling */
+body {
+    background-color: grey;
+}
+    select,
+input[type="text"] {
+    width: 20%;
+    padding: 8px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #0056b3;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+    border-radius: 8px;
+    height: 50px;
+    width: 250px;
+}
+img {
+    width: 1340px;
+    height: 200px;
+}
+aside {
+    text-align: center;
+    padding: 20px;
+    padding-right: 60px;
+}
+li {
+    list-style-type: none;
+}
+main {
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+nav {
+    list-style-type: none;
+    padding: 0;
+    overflow: hidden;
+    text-align: center;
+}
+a {
+    display: block;
+    float: none;
+    padding: 8px;
+    background-color: #dddddd;
+}

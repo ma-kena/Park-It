@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Dashboard</title>
+    <link rel="stylesheet" href="welcome.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome, <span id="usernameDisplay"></span>!</h1>
+    </header>
+
+    <div class="container">
+        <aside>
+            <nav>
+                <ul>
+                    <li><a href="#">Dashboard</a></li>
+                    <li><a href="booking.html">Booking Service</a></li>
+                    <li><a href="#">Booking History</a></li>
+                    <li><a href="#">Profile</a></li>
+                    <li><a href="#" id="logoutBtn">Logout</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main>
+            <h2>Dashboard</h2>
+            <p>View Parking Status</p>
+                <!-- Adding a link within the main content -->
+                <p>
+                    <a href="https://blynk.cloud/dashboard/183058/global/devices/1404379/organization/183058/devices/666066/dashboard">Park It Parking System</a> <!-- Link added here -->
+                </p>
+                 <!-- Add a Canvas for the Chart -->
+                 <div class="chart-container">
+            <canvas id="myChart" width="100px" height="100px"></canvas>
+                 </div>
+        </main>
+    </div>
+
+    <nav>
+        <a href="home.html"><button>Home</button></a>
+        <a href="login.html"><button>Login</button></a>
+        <a href="signup.html"><button>Sign Up</button></a>
+    </nav>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Assume the login is successful
+function handleLogin(event) {
+    event.preventDefault();
+
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    const user = users.find(user => user.username === username && user.password === password);
+
+    if (user) {
+        localStorage.setItem('loggedInUser', username); // Store username
+        window.location.href = 'welcome.html'; // Redirect to the welcome page
+    } else {
+        showMessage('Invalid username or password.', false);
+    }
+}
+
+// On the welcome page, display the username
+document.addEventListener('DOMContentLoaded', function() {
+    const usernameDisplay = document.getElementById('usernameDisplay');
+    const loggedInUser = localStorage.getItem('loggedInUser');
+
+    if (usernameDisplay && loggedInUser) {
+        usernameDisplay.textContent = loggedInUser;
+    }
+
+    // Logout functionality
+    const logoutBtn = document.getElementById('logoutBtn');
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', function() {
+            localStorage.removeItem('loggedInUser');
+            window.location.href = 'login.html';
+        });
+    }
+});
+
+    </script>
+</body>
+</html>

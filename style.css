@@ -1,0 +1,63 @@
+/* Basic Reset */
+* {
+    margin: 10;
+    padding: 20;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    align-items: center;
+}
+
+header {
+    background-color: #F1F1F1;
+    text-align: center;
+    padding: 20px;
+}
+
+.logo {
+    height: 100px;
+    width: 100px; 
+}
+
+.container {
+  text-align: center;  
+}
+
+button {
+    background-color: #0056b3;
+    border-radius: 8px;
+    height: 50px;
+    width: 250px;
+}
+
+/* Main Content Styling */
+main {
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+nav {
+    list-style-type: none;
+    padding: 0;
+    overflow: hidden;
+    text-align: center;
+}
+  
+a {
+    display: block;
+    float: none;
+    padding: 8px;
+    background-color: #dddddd;
+}
+.form-group {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    align-items: center;
+    margin-bottom: 15px;
+}
+ 

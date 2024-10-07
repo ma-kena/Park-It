@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Service</title>
+    <link rel="stylesheet" href="booking.css">
+</head>
+<body>
+    <div class= "background">
+        <img src="C:\Users\USER\Downloads\Premium Photo _ Car park inside.jfif" alt="background">
+    </div>
+    <header>
+        <h1>Bookings</h1>
+    </header>
+
+    <div class="container">
+        <aside>
+            <nav>
+                <ul>
+                    <li><a href="welcome.html">Dashboard</a></li>
+                    <li><a href="booking.html">Booking Service</a></li>
+                    <li><a href="#">Booking History</a></li>
+                    <li><a href="#">Profile</a></li>
+                    <li><a href="#" id="logoutBtn">Logout</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main>
+            <h2>Reserve a Parking Slot</h2>
+            <form id="bookingForm">
+                <div class="form-group">
+                    <label for="slot">Select Parking Slot:</label>
+                    <select id="slot" name="slot" required>
+                        <option value="">Select a slot</option>
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                        <option value="D">D</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="payment">Payment Details:</label>
+                    <input type="text" id="cardNumber" name="cardNumber" placeholder="Card Number" required>
+                    <input type="text" id="cardExpiry" name="cardExpiry" placeholder="MM/YY" required>
+                    <input type="text" id="cardCVV" name="cardCVV" placeholder="CVV" required>
+                </div>
+
+                <button type="submit">Book Now</button>
+            </form>
+
+            <p id="message"></p>
+        </main>
+    </div>
+    <nav>
+        <a href="home.html"><button>Home</button></a>
+        <a href="login.html"><button>Login</button></a>
+        <a href="signup.html"><button>Sign Up</button></a>
+    </nav>
+
+    <script>
+        // Function to handle the booking form submission
+function handleBooking(event) {
+    event.preventDefault();
+
+    const slot = document.getElementById('slot').value;
+    const cardNumber = document.getElementById('cardNumber').value;
+    const cardExpiry = document.getElementById('cardExpiry').value;
+    const cardCVV = document.getElementById('cardCVV').value;
+
+    if (slot && cardNumber && cardExpiry && cardCVV) {
+        // Simulate a booking process
+        showMessage('Your parking slot has been successfully booked!', true);
+    } else {
+        showMessage('Please fill in all fields.', false);
+    }
+}
+
+// Show message function
+function showMessage(message, isSuccess) {
+    const messageBox = document.getElementById('message');
+    messageBox.textContent = message;
+    messageBox.style.color = isSuccess ? 'green' : 'red';
+}
+
+document.getElementById('bookingForm')?.addEventListener('submit', handleBooking);
+
+// Logout functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const logoutBtn = document.getElementById('logoutBtn');
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', function() {
+            localStorage.removeItem('loggedInUser');
+            window.location.href = 'login.html';
+        });
+    }
+});
+
+    </script>
+</body>
+</html>

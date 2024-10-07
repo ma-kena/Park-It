@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <img src="C:\Users\USER\Downloads\Parking sign stock vector_ Illustration of cars, blue - 24996092.jfif" alt="Logo" class="logo">
+    </header>
+
+        <main>
+            <h1>Sign Up</h1>
+            <form id="signupForm">
+                <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email"><br><br>
+                </div>
+                <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username"><br><br>
+                </div>
+                <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password"><br><br>
+                </div>
+                <button type="submit">Sign Up</button>
+            </form>
+            <p id="message"></p>
+        </main>
+        
+        <nav>
+            <a href="home.html"><button>Home</button></a>
+            <a href="login.html"><button>Login</button></a>
+            <a href="signup.html"><button>Sign Up</button></a>
+        </nav>
+
+    <script>
+        // Predefined credentials for demo purposes
+const users = [
+    {username: "Carroll", password: "password123", email: "njebiucarroll@gmail.com.com" } 
+];
+
+// Function to show a message to the user
+function showMessage(message, isSuccess) {
+    const messageBox = document.getElementById('message');
+    messageBox.textContent = message;
+    messageBox.style.color = isSuccess ? 'green' : 'red';
+}
+
+// Handle the Sign Up form submission
+function handleSignUp(event) {
+    event.preventDefault();
+
+    const email = document.getElementById('email').value;
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    if (username && password && email) {
+        // Simulate a successful sign-up
+        users.push({ username, password, email });
+        showMessage('Sign-up successful!', true);
+    } else {
+        showMessage('Please fill in all fields.', false);
+    }
+}
+
+// Handle the Login form submission
+function handleLogin(event) {
+    event.preventDefault();
+
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    const user = users.find(user => user.username === username && user.password === password);
+
+    if (user) {
+        showMessage('Login successful!', true);
+    } else {
+        showMessage('Invalid username or password.', false);
+    }
+}
+
+document.getElementById('signupForm')?.addEventListener('submit', handleSignUp);
+document.getElementById('loginForm')?.addEventListener('submit', handleLogin);
+    </script>
+</body>
+</html>
